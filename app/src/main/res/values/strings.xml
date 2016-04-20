@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ShoppoMem</string>
+    <string name="new_list_button">Create a new list</string>
+    <string name="active_lists_button">Active lists</string>
+    <string name="history_button">History</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_about">About</string>
 </resources>
