@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar mainToolbar = null;
     private Button newListButton = null;
+    private Button activeListsButton = null;
+    private Button historyButton = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         newListButton = (Button) findViewById(R.id.newListButton);
+        activeListsButton = (Button) findViewById(R.id.activeListsButton);
+        historyButton = (Button) findViewById(R.id.historyButton);
         mainToolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(mainToolbar);
 
@@ -29,6 +33,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), NewListActivity.class);
+                startActivity(i);
+            }
+        });
+
+        /* Set "Active lists button" listener */
+        activeListsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), ActiveListsActivity.class);
+                startActivity(i);
+            }
+        });
+
+        /* Set "History button" listener */
+        historyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), HistoryActivity.class);
                 startActivity(i);
             }
         });
