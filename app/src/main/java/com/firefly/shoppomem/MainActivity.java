@@ -1,5 +1,7 @@
 package com.firefly.shoppomem;
 
+import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -71,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == R.id.action_about) {
-            Toast.makeText(this, "About is clicked", Toast.LENGTH_SHORT).show();
+            DialogFragment dialog = new AboutDialogFragment();
+            dialog.show(getFragmentManager(), "AboutDialog");
         }
 
         return super.onOptionsItemSelected(item);

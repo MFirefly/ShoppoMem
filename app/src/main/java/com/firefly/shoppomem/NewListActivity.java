@@ -1,9 +1,12 @@
 package com.firefly.shoppomem;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,10 +15,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.List;
-import java.util.zip.Inflater;
-
-public class NewListActivity extends AppCompatActivity {
+public class NewListActivity extends AppCompatActivity implements AddNewItemDialogFragment.NewItemDialogListener{
 
     private Toolbar newListToolbar = null;
     private Button addNewItem = null;
@@ -33,16 +33,16 @@ public class NewListActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.itemsListView);
 
         /* Get a support ActionBar corresponding to this toolbar
-        * Enable the Up Button*/
+         * Enable the Up Button*/
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         addNewItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /* Open dialogue */
+                /* Create instance of the dialog fragment and show it */
                 DialogFragment newDialog = new AddNewItemDialogFragment();
-                newDialog.show(getFragmentManager(), "Add");
+                newDialog.show(getFragmentManager(), "AddNewItemDialog");
             }
         });
     }
@@ -60,10 +60,31 @@ public class NewListActivity extends AppCompatActivity {
         * automatically handle clicks on the Home/Up button, so long
         * as you specify a parent activity in AndroidManifest.xml */
         int id = item.getItemId();
+        DialogFragment dialog;
 
         if(id == R.id.save_list) {
-                Toast.makeText(this, R.string.message_action_save, Toast.LENGTH_SHORT).show();
+            dialog = new SaveNewListDialogFragment();
+            dialog.show(getFragmentManager(), "SaveListDialog");
+            return super.onOptionsItemSelected(item);
+        } else if(id == android.R.id.home) {
+            dialog = new BackButtonNewListDialogFragment();
+            dialog.show(getFragmentManager(), "GoBack");
         }
-        return super.onOptionsItemSelected(item);
+        return true;
+    }
+
+    /* The dialog fragment receives reference to this Activity through the
+     * Fragment.onAttach() callback, which it uses to call the following methods
+     * defined by the DialogListener interface. */
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        /* User touched positive button */
+
+    }
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+        /* User touched negative button */
+        dialog.dismiss();
     }
 }

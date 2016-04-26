@@ -6,17 +6,20 @@
     <string name="history_button">History</string>
     <string name="action_about">About</string>
 
+    <!-- About dialog -->
+    <string name="about_title">About</string>
+    <string name="about_message"> ShoppoMem is made by Maja Filakovic\n\n
+                                Version: 0.1\n
+                                Copyright - All rights reserved.\n\n
+                                For any questions feel free to contact\n
+                                me on: maja.filakovic@gmail.com</string>
+    <string name="about_dismiss_button">Dismiss</string>
+
     <!-- New list activity -->
     <string name="new_list_name">New list</string>
     <string name="action_save">Save</string>
     <string name="message_action_save">List saved!</string>
     <string name="add_new_item">Add new item...</string>
-
-    <!-- Active lists activity -->
-    <string name="active_lists_name">Active lists</string>
-
-    <!-- History activity -->
-    <string name="history_name">History</string>
 
     <!-- Add new item dialog -->
     <string name="new_item_dialog">Add new item</string>
@@ -28,4 +31,23 @@
     <string name="new_item_tip_hint">Additional info</string>
     <string name="new_item_add">Add</string>
     <string name="new_item_discard">Discard</string>
+
+    <!-- Save new list dialog -->
+    <string name="save_new_list_message">Save the list and finish editing?</string>
+    <string name="save_new_list_save_button">Save</string>
+    <string name="save_new_list_dismiss_button">Dismiss</string>
+
+    <!-- Go back from new list without saving dialog -->
+    <string name="go_back_new_list_title">Go back without saving?</string>
+    <string name="go_back_new_list_message">Warning: All data will be lost!</string>
+    <string name="go_back_new_list_no">No</string>
+    <string name="go_back_new_list_yes">Yes</string>
+
+    <!-- Active lists activity -->
+    <string name="active_lists_name">Active lists</string>
+
+    <!-- History activity -->
+    <string name="history_name">History</string>
+
+
 </resources>
