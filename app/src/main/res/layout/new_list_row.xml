@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/newListRowImageViewAdd"
+        android:src="@mipmap/ic_add_black_48dp"
+        android:padding="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"/>
+    
+    <TextView
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/newListRowTextName"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/newListRowImageViewAdd"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/newListRowTextInfo"
+        android:layout_below="@+id/newListRowTextName"
+        android:layout_toRightOf="@+id/newListRowImageViewAdd" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="10pcs"
+        android:id="@+id/newListRowTextQuantity"
+        android:layout_toLeftOf="@+id/newListRowImageViewDelete"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/newListRowImageViewDelete"
+        android:src="@mipmap/ic_delete_black_48dp"
+        android:padding="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

@@ -25,7 +25,8 @@ public class NewListActivity extends AppCompatActivity implements AddNewItemDial
     private Button addNewItem = null;
     private ListView listView = null;
     ArrayList<Item> list = new ArrayList<Item>();
-    ArrayAdapter<Item> adapter;
+    //ArrayAdapter<Item> adapter;
+    ItemAdapter mItemAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +41,11 @@ public class NewListActivity extends AppCompatActivity implements AddNewItemDial
 
         /* Add list to the ListView with adapter */
         listView = (ListView) findViewById(R.id.itemsListView);
-        adapter = new ArrayAdapter<Item>(this, android.R.layout.simple_expandable_list_item_1, list);
-        listView.setAdapter(adapter);
+        mItemAdapter = new ItemAdapter(getApplicationContext(), R.layout.new_list_row, list);
+
+        if(listView != null) {
+            listView.setAdapter(mItemAdapter);
+        }
 
         /* Get a support ActionBar corresponding to this toolbar
          * Enable the Up Button*/
@@ -91,7 +95,8 @@ public class NewListActivity extends AppCompatActivity implements AddNewItemDial
     @Override
     public void onDialogPositiveClick(DialogFragment dialog, Item item) {
         /* User touched positive button */
-        adapter.add(item);
+        /* Add new item to the list view */
+        mItemAdapter.add(item);
     }
 
     @Override
