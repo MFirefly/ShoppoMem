@@ -8,6 +8,7 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.widget.EditText;
 
 public class AddNewItemDialogFragment extends DialogFragment {
 
@@ -15,7 +16,7 @@ public class AddNewItemDialogFragment extends DialogFragment {
      * implement this interface in order to receive event callbacks.
      * Each method passes the DialogFragment in case the host needs to query it. */
     public interface NewItemDialogListener {
-        void onDialogPositiveClick(DialogFragment dialog);
+        void onDialogPositiveClick(DialogFragment dialog, Item item);
 
         void onDialogNegativeClick(DialogFragment dialog);
     }
@@ -51,8 +52,17 @@ public class AddNewItemDialogFragment extends DialogFragment {
                 .setPositiveButton(R.string.new_item_add, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        /* Retrieve data that user entered */
+                        Dialog dial = (Dialog) dialog;
+                        EditText name = (EditText) dial.findViewById(R.id.newItemNameEdit);
+                        EditText quantity = (EditText) dial.findViewById(R.id.newItemQuantityEdit);
+                        EditText info = (EditText) dial.findViewById(R.id.newItemNameInfo);
+
+                        /* Add the data to item */
+                        Item item = new Item(name.getText().toString(), quantity.getText().toString(), info.getText().toString());
+
                         /* Send the positive button event back to the host activity */
-                        mListener.onDialogPositiveClick(AddNewItemDialogFragment.this);
+                        mListener.onDialogPositiveClick(AddNewItemDialogFragment.this, item);
                     }
                 })
                 .setNegativeButton(R.string.new_item_discard, new DialogInterface.OnClickListener() {

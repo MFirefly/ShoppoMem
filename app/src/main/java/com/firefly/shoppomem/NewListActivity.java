@@ -11,32 +11,44 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class NewListActivity extends AppCompatActivity implements AddNewItemDialogFragment.NewItemDialogListener{
 
     private Toolbar newListToolbar = null;
     private Button addNewItem = null;
     private ListView listView = null;
+    ArrayList<Item> list = new ArrayList<Item>();
+    ArrayAdapter<Item> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_list);
 
+        /* Show toolbar */
         newListToolbar = (Toolbar) findViewById(R.id.toolbar_new_list);
         setSupportActionBar(newListToolbar);
 
         addNewItem = (Button) findViewById(R.id.addNewItemButton);
+
+        /* Add list to the ListView with adapter */
         listView = (ListView) findViewById(R.id.itemsListView);
+        adapter = new ArrayAdapter<Item>(this, android.R.layout.simple_expandable_list_item_1, list);
+        listView.setAdapter(adapter);
 
         /* Get a support ActionBar corresponding to this toolbar
          * Enable the Up Button*/
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        /* Set click listener for add new item button */
         addNewItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,9 +89,9 @@ public class NewListActivity extends AppCompatActivity implements AddNewItemDial
      * Fragment.onAttach() callback, which it uses to call the following methods
      * defined by the DialogListener interface. */
     @Override
-    public void onDialogPositiveClick(DialogFragment dialog) {
+    public void onDialogPositiveClick(DialogFragment dialog, Item item) {
         /* User touched positive button */
-
+        adapter.add(item);
     }
 
     @Override
