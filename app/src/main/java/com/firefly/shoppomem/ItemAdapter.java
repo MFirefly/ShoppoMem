@@ -60,15 +60,21 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         /* Get the data from the item data array */
         Item item = mItemData.get(position);
 
-        /* Setup and reuse the same listener for each row */
-        holder.addImageView.setOnClickListener(AddImageListener);
+        /* Setup and reuse the same listener for each row for add image */
+        holder.addImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "AddImage!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
+        /* Setup and reuse the same listener for each row for delete from list */
         holder.deleteImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 /* Delete the selected item from the list */
                 mItemData.remove(position);
-                NewListActivity.mItemAdapter.notifyDataSetChanged();
+                NewListActivity.getNewListItemAdapter().notifyDataSetChanged();
             }
         });
 
@@ -80,12 +86,6 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         return row;
     }
 
-    View.OnClickListener AddImageListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Toast.makeText(getContext(), "AddImage!", Toast.LENGTH_SHORT).show();
-        }
-    };
 
     private class PlaceHolder {
         TextView nameView;

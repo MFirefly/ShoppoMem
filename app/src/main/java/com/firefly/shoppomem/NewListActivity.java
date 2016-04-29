@@ -17,9 +17,21 @@ public class NewListActivity extends AppCompatActivity implements AddNewItemDial
 
     private Toolbar newListToolbar = null;
     private Button addNewItem = null;
-    public static ListView listView = null;
-    ArrayList<Item> list = new ArrayList<Item>();
-    public static ItemAdapter mItemAdapter;
+    private ListView listView = null;
+    private static ArrayList<Item> list = new ArrayList<>();
+    private static ItemAdapter newListItemAdapter;
+
+    public static void setList(ArrayList<Item> list) {
+        NewListActivity.list = list;
+    }
+
+    public static ArrayList<Item> getList() {
+        return list;
+    }
+
+    public static ItemAdapter getNewListItemAdapter() {
+        return newListItemAdapter;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +46,10 @@ public class NewListActivity extends AppCompatActivity implements AddNewItemDial
 
         /* Add list to the ListView with adapter */
         listView = (ListView) findViewById(R.id.itemsListView);
-        mItemAdapter = new ItemAdapter(getApplicationContext(), R.layout.new_list_row, list);
+        newListItemAdapter = new ItemAdapter(getApplicationContext(), R.layout.new_list_row, getList());
 
         if(listView != null) {
-            listView.setAdapter(mItemAdapter);
+            listView.setAdapter(newListItemAdapter);
         }
 
         /* Get a support ActionBar corresponding to this toolbar
@@ -89,7 +101,7 @@ public class NewListActivity extends AppCompatActivity implements AddNewItemDial
     public void onDialogPositiveClick(DialogFragment dialog, Item item) {
         /* User touched positive button */
         /* Add new item to the list view */
-        mItemAdapter.add(item);
+        newListItemAdapter.add(item);
     }
 
     @Override

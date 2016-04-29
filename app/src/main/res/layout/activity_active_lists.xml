@@ -9,4 +9,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ActiveListsActivity">
 
+    <ListView
+        android:id="@+id/activeListsListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="false">
+    </ListView>
+
 </RelativeLayout>
+
