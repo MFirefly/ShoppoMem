@@ -1,5 +1,6 @@
 package com.firefly.shoppomem;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -7,11 +8,12 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 
 /**
  * Created by maja.filakovic on 26.4.2016..
  */
+@TargetApi(23)
 public class SaveNewListDialogFragment extends DialogFragment {
 
     @Override
@@ -24,7 +26,7 @@ public class SaveNewListDialogFragment extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         /* Create new list with added items and current date */
-                        List list = new List(NewListActivity.getList(), new Date());
+                        List list = new List(NewListActivity.getList(), Calendar.getInstance());
                         /* Add it to the list of active lists */
                         ActiveListsActivity.getActiveLists().add(list);
                         /* Empty the items list */
