@@ -8,6 +8,7 @@ public class Item {
     private String itemName;
     private String quantity;
     private String additionalInfo;
+    private boolean mSelected = false;
 
     public Item(String itemName, String quantity, String additionalInfo) {
         this.itemName = itemName;
@@ -25,6 +26,14 @@ public class Item {
 
     public String getAdditionalInfo() {
         return additionalInfo;
+    }
+
+    public boolean ismSelected() {
+        return mSelected;
+    }
+
+    public void setmSelected(boolean mSelected) {
+        this.mSelected = mSelected;
     }
 
     @Override

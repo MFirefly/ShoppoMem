@@ -7,8 +7,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/newListRowImageViewAdd"
-        android:src="@mipmap/ic_add_black_48dp"
-        android:padding="10dp"
+        android:src="@mipmap/ic_add_black_36dp"
+        android:padding="15dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"/>
     
@@ -50,8 +50,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/newListRowImageViewDelete"
-        android:src="@mipmap/ic_delete_black_48dp"
-        android:padding="10dp"
+        android:src="@mipmap/ic_delete_black_36dp"
+        android:padding="15dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"/>
 

@@ -47,7 +47,8 @@
         </activity>
 
         <!-- History activity -->
-        <activity android:name=".HistoryActivity"
+        <activity
+            android:name=".HistoryActivity"
             android:label="@string/history_name"
             android:parentActivityName=".MainActivity">
 
@@ -55,7 +56,18 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+        </activity>
 
+        <!-- Pending list activity -->
+        <activity
+            android:name=".PendingListActivity"
+            android:label="@string/pending_list_name"
+            android:parentActivityName=".ActiveListsActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActiveListsActivity" />
         </activity>
     </application>
 

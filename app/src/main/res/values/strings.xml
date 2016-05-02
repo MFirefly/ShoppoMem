@@ -49,4 +49,8 @@
     <!-- History activity -->
     <string name="history_name">History</string>
 
+    <!-- Pending list activity -->
+    <string name="pending_list_name">Shopping time!</string>
+    <string name="finish_shopping">Shopping done</string>
+
 </resources>

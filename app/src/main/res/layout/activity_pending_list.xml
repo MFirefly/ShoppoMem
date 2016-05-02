@@ -7,16 +7,22 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ActiveListsActivity">
+    tools:context="com.firefly.shoppomem.PendingListActivity">
 
     <ListView
-        android:id="@+id/activeListsListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbarAlwaysDrawHorizontalTrack="false"
-        android:scrollbarAlwaysDrawVerticalTrack="false"
-        android:clickable="true">
+        android:id="@+id/pendingListListView"
+        android:clickable="true"
+        android:layout_above="@+id/pendingFinishShoppingButton">
     </ListView>
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/pendingFinishShoppingButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/finish_shopping"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
 
+</RelativeLayout>

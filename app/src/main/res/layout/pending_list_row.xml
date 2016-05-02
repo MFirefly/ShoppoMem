@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/pendingListRowImageViewImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:padding="15dp"
+        android:src="@mipmap/ic_add_black_36dp" />
+
+    <TextView
+        android:id="@+id/pendingListRowTextName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/pendingListRowImageViewImage"
+        android:paddingLeft="20dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/pendingListRowTextInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pendingListRowTextName"
+        android:layout_toRightOf="@+id/pendingListRowImageViewImage"
+        android:paddingLeft="20dp"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/pendingListRowTextQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toLeftOf="@+id/pendingListRowImageViewCheck"
+        android:padding="10dp"
+        android:text="10pcs"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/black" />
+
+    <ImageView
+        android:id="@+id/pendingListRowImageViewCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:padding="15dp"
+        android:src="@mipmap/ic_panorama_fish_eye_black_36dp" />
+
+</RelativeLayout>

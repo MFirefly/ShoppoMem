@@ -20,6 +20,10 @@ public class List {
         return mDate;
     }
 
+    public ArrayList<Item> getmItemsList() {
+        return mItemsList;
+    }
+
     @Override
     public String toString() {
         return "Made on: " + getmDate().getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.US) + ", "

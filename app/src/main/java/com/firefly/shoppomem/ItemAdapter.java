@@ -16,15 +16,27 @@ import java.util.ArrayList;
  */
 public class ItemAdapter extends ArrayAdapter<Item> {
 
-    Context mContext;
-    int mLayoutResourceId;
-    ArrayList<Item> mItemData = null;
+    private Context mContext;
+    private int mLayoutResourceId;
+    private ArrayList<Item> mItemData = null;
 
     public ItemAdapter(Context context, int resource, ArrayList<Item> data) {
         super(context, resource, data);
         this.mContext = context;
         this.mLayoutResourceId = resource;
         this.mItemData = data;
+    }
+
+    private Context getmContext() {
+        return mContext;
+    }
+
+    private int getmLayoutResourceId() {
+        return mLayoutResourceId;
+    }
+
+    private ArrayList<Item> getmItemData() {
+        return mItemData;
     }
 
     @Override
@@ -40,8 +52,8 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         /* If we currently don't have a row View to reuse... */
         if (row == null) {
             /* Inflate the layout for a single row  - create a new view */
-            LayoutInflater inflater = LayoutInflater.from(mContext);
-            row = inflater.inflate(mLayoutResourceId, parent, false);
+            LayoutInflater inflater = LayoutInflater.from(getmContext());
+            row = inflater.inflate(getmLayoutResourceId(), parent, false);
 
             holder = new PlaceHolder();
 
@@ -58,7 +70,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         }
 
         /* Get the data from the item data array */
-        Item item = mItemData.get(position);
+        Item item = getmItemData().get(position);
 
         /* Setup and reuse the same listener for each row for add image */
         holder.addImageView.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +85,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             @Override
             public void onClick(View v) {
                 /* Delete the selected item from the list */
-                mItemData.remove(position);
+                getmItemData().remove(position);
                 NewListActivity.getNewListItemAdapter().notifyDataSetChanged();
             }
         });
