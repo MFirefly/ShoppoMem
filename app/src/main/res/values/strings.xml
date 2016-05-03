@@ -53,4 +53,10 @@
     <string name="pending_list_name">Shopping time!</string>
     <string name="finish_shopping">Shopping done</string>
 
+    <!-- Finish shopping dialog -->
+    <string name="finish_shopping_title">Finish shopping?</string>
+    <string name="finish_shopping_message">The final list will be available in history.</string>
+    <string name="finish_shopping_finish">Finish</string>
+    <string name="finish_shopping_continue">Continue shopping</string>
+
 </resources>

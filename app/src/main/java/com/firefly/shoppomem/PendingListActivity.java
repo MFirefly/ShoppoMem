@@ -1,5 +1,6 @@
 package com.firefly.shoppomem;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -50,7 +51,9 @@ public class PendingListActivity extends AppCompatActivity {
         shoppingDoneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Shopping finished!", Toast.LENGTH_SHORT).show();
+                /* Create an instance of dialog fragment and show it */
+                DialogFragment dialog = new FinishShoppingDialogFragment();
+                dialog.show(getFragmentManager(), "FinishShopping");
             }
         });
 
