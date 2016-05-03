@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -49,6 +51,23 @@ public class PendingListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), "Shopping finished!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        /* Item select click listener */
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ImageView imageView = (ImageView) view.findViewById(R.id.pendingListRowImageViewCheck);
+                /* Switch the flag */
+                getPendingList().get(position).togglemSelected();
+                /* Change image and background color */
+                if(getPendingList().get(position).ismSelected()) {
+                    /* Change picture and background color */
+                    imageView.setImageResource(R.mipmap.ic_check_circle_black_36dp);
+                } else {
+                    imageView.setImageResource(R.mipmap.ic_panorama_fish_eye_black_36dp);
+                }
             }
         });
     }

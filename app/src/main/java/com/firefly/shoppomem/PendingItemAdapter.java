@@ -46,7 +46,7 @@ public class PendingItemAdapter extends ArrayAdapter<Item> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
-        PlaceHolder holder = null;
+        final PlaceHolder holder;
 
         /* If we currently don't have a row to reuse... */
         if (row == null) {
@@ -60,7 +60,6 @@ public class PendingItemAdapter extends ArrayAdapter<Item> {
             holder.nameView = (TextView) row.findViewById(R.id.pendingListRowTextName);
             holder.qtyView = (TextView) row.findViewById(R.id.pendingListRowTextQuantity);
             holder.infoView = (TextView) row.findViewById(R.id.pendingListRowTextInfo);
-            holder.imgImageView = (ImageView) row.findViewById(R.id.pendingListRowImageViewImage);
             holder.checkImageView = (ImageView) row.findViewById(R.id.pendingListRowImageViewCheck);
 
             row.setTag(holder);
@@ -69,15 +68,7 @@ public class PendingItemAdapter extends ArrayAdapter<Item> {
         }
 
         /* Get the data from the item data array */
-        Item pendingItem = getmPendingItemData().get(position);
-
-        /* Setup and reuse the same listener for each row for check/uncheck */
-        holder.checkImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /* Change picture, change background and switch flag */
-            }
-        });
+        final Item pendingItem = getmPendingItemData().get(position);
 
         holder.nameView.setText(pendingItem.getItemName());
         holder.infoView.setText(pendingItem.getAdditionalInfo());
@@ -90,7 +81,6 @@ public class PendingItemAdapter extends ArrayAdapter<Item> {
         TextView nameView;
         TextView qtyView;
         TextView infoView;
-        ImageView imgImageView;
         ImageView checkImageView;
     }
 }

@@ -40,4 +40,12 @@ public class Item {
     public String toString() {
         return getItemName() + "  x" + getQuantity() + "\n" + getAdditionalInfo();
     }
+
+    public void togglemSelected() {
+        if(ismSelected()) {
+            setmSelected(false);
+        } else {
+            setmSelected(true);
+        }
+    }
 }
