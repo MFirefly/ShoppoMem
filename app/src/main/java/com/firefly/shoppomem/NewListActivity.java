@@ -2,6 +2,7 @@ package com.firefly.shoppomem;
 
 import android.app.DialogFragment;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +21,7 @@ public class NewListActivity extends AppCompatActivity implements AddNewItemDial
     private ListView listView = null;
     private static ArrayList<Item> list = new ArrayList<>();
     private static ItemAdapter newListItemAdapter;
+    private static CoordinatorLayout coordinatorLayout;
 
     public static void setList(ArrayList<Item> list) {
         NewListActivity.list = list;
@@ -33,10 +35,16 @@ public class NewListActivity extends AppCompatActivity implements AddNewItemDial
         return newListItemAdapter;
     }
 
+    public static CoordinatorLayout getCoordinatorLayout() {
+        return coordinatorLayout;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_list);
+
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.newListCoordinatorLayout);
 
         /* Show toolbar */
         newListToolbar = (Toolbar) findViewById(R.id.toolbar_new_list);

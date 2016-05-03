@@ -43,6 +43,12 @@
     <string name="go_back_new_list_no">No</string>
     <string name="go_back_new_list_yes">Yes</string>
 
+    <!-- Delete item from the list dialog -->
+    <string name="delete_item_message">Are you sure you want to remove the item
+                                       from the list?</string>
+    <string name="delete_item_yes">I\'m sure</string>
+    <string name="delete_item_no">Actually no</string>
+
     <!-- Active lists activity -->
     <string name="active_lists_name">Active lists</string>
 

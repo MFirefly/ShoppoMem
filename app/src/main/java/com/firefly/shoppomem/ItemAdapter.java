@@ -1,6 +1,7 @@
 package com.firefly.shoppomem;
 
 import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,8 +86,16 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             @Override
             public void onClick(View v) {
                 /* Delete the selected item from the list */
-                getmItemData().remove(position);
-                NewListActivity.getNewListItemAdapter().notifyDataSetChanged();
+                Snackbar snackbar = Snackbar
+                        .make(NewListActivity.getCoordinatorLayout(), R.string.delete_item_message, Snackbar.LENGTH_LONG)
+                        .setAction(R.string.delete_item_yes, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                getmItemData().remove(position);
+                                NewListActivity.getNewListItemAdapter().notifyDataSetChanged();
+                            }
+                        });
+                snackbar.show();
             }
         });
 
