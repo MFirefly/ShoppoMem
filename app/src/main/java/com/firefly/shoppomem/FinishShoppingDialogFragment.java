@@ -7,6 +7,9 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+
 /**
  * Created by maja.filakovic on 3.5.2016..
  */
@@ -22,7 +25,8 @@ public class FinishShoppingDialogFragment extends DialogFragment {
                 .setPositiveButton(R.string.finish_shopping_finish, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(getActivity().getApplicationContext(), "Shopping finished!", Toast.LENGTH_SHORT).show();
+                        HistoryActivity.getHistoryList().add(new List(PendingListActivity.getPendingList(), Calendar.getInstance()));
+                        Toast.makeText(getActivity().getApplicationContext(), "List saved in history.", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton(R.string.finish_shopping_continue, null);

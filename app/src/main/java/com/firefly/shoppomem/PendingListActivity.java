@@ -20,10 +20,10 @@ public class PendingListActivity extends AppCompatActivity {
 
     private Button shoppingDoneButton = null;
     private ListView listView = null;
-    private ArrayList<Item> pendingList = null;
+    private static ArrayList<Item> pendingList = null;
     private PendingItemAdapter pendingItemAdapter;
 
-    public ArrayList<Item> getPendingList() {
+    public static ArrayList<Item> getPendingList() {
         return pendingList;
     }
 
