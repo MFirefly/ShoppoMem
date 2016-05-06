@@ -1,13 +1,16 @@
 package com.firefly.shoppomem;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
 
 public class HistoryActivity extends AppCompatActivity implements HistoryListFragment.OnHistoryListSelectedListener{
 
     private static ArrayList<List> historyList = new ArrayList<>();
+    private Toolbar myToolbar;
 
     public static ArrayList<List> getHistoryList() {
         return historyList;
@@ -17,6 +20,14 @@ public class HistoryActivity extends AppCompatActivity implements HistoryListFra
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+
+        /* Add the toolbar to activity */
+        myToolbar = (Toolbar) findViewById(R.id.historyToolbar);
+        setSupportActionBar(myToolbar);
+
+        /* Enable the Up button */
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         /* Check if the activity is using the layout version
          * with FrameLayout. If so, we have to add the fragment.

@@ -1,8 +1,7 @@
 package com.firefly.shoppomem;
 
-import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.ListFragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -20,25 +19,24 @@ public class HistoryListFragment extends ListFragment {
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
 
         /* Make sure that the container Activity has implemented
          * the interface. If not, throw an exception */
         try {
-            callback = (OnHistoryListSelectedListener) context;
+            callback = (OnHistoryListSelectedListener) activity;
         } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() + "must implement OnHistoryListSelectedListener!");
+            throw new ClassCastException(activity.toString() + "must implement OnHistoryListSelectedListener!");
         }
     }
 
-    @TargetApi(23)
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         /* Set list adapter */
-        setListAdapter(new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, HistoryActivity.getHistoryList()));
+        setListAdapter(new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, HistoryActivity.getHistoryList()));
     }
 
     @Override

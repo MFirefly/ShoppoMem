@@ -2,7 +2,8 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="activity_action_bar">40dp</dimen>
+    <dimen name="activity_action_bar">50dp</dimen>
+    <dimen name="activity_history_action_bar">55dp</dimen>
     <dimen name="new_item_dialogue_name">20dp</dimen>
     <dimen name="new_item_dialogue_text_view">15dp</dimen>
     <dimen name="new_item_dialogue_edit_text">15dp</dimen>

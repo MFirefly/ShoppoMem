@@ -1,15 +1,17 @@
 package com.firefly.shoppomem;
 
+
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,6 +24,7 @@ public class PendingListActivity extends AppCompatActivity {
     private ListView listView = null;
     private static ArrayList<Item> pendingList = null;
     private PendingItemAdapter pendingItemAdapter;
+    private Toolbar myToolbar;
 
     public static ArrayList<Item> getPendingList() {
         return pendingList;
@@ -33,6 +36,14 @@ public class PendingListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pending_list);
 
         shoppingDoneButton = (Button) findViewById(R.id.pendingFinishShoppingButton);
+
+        /* Add the toolbar to activity */
+        myToolbar = (Toolbar) findViewById(R.id.pendingListToolbar);
+        setSupportActionBar(myToolbar);
+
+        /* Enable the Up button */
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         /* Get data from intent */
         Intent intent = getIntent();

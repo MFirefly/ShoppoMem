@@ -1,12 +1,10 @@
 package com.firefly.shoppomem;
 
-import android.annotation.TargetApi;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 /**
@@ -31,11 +29,10 @@ public class HistoryItemListFragment extends ListFragment {
         return myFragmentView;
     }
 
-    @TargetApi(23)
     public void updateListView(int position) {
         View v = getListView();
         ListView listView = (ListView) v.findViewById(android.R.id.list);
-        listView.setAdapter(new PendingItemAdapter(getContext(), R.layout.pending_list_row, HistoryActivity.getHistoryList().get(position).getmItemsList()));
+        listView.setAdapter(new PendingItemAdapter(getActivity(), R.layout.pending_list_row, HistoryActivity.getHistoryList().get(position).getmItemsList()));
         currentPosition = position;
     }
 
