@@ -25,7 +25,7 @@ public class FinishShoppingDialogFragment extends DialogFragment {
                 .setPositiveButton(R.string.finish_shopping_finish, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        HistoryActivity.getHistoryList().add(new List(PendingListActivity.getPendingList(), Calendar.getInstance()));
+                        Data.getInstance().getHistoryActivityList().add(new List(Data.getInstance().getPendingListActivityList(), Calendar.getInstance()));
                         Toast.makeText(getActivity().getApplicationContext(), "List saved in history.", Toast.LENGTH_SHORT).show();
                     }
                 })

@@ -32,7 +32,7 @@ public class HistoryItemListFragment extends ListFragment {
     public void updateListView(int position) {
         View v = getListView();
         ListView listView = (ListView) v.findViewById(android.R.id.list);
-        listView.setAdapter(new PendingItemAdapter(getActivity(), R.layout.pending_list_row, HistoryActivity.getHistoryList().get(position).getmItemsList()));
+        listView.setAdapter(new PendingItemAdapter(getActivity(), R.layout.pending_list_row, Data.getInstance().getHistoryActivityList().get(position).getmItemsList()));
         currentPosition = position;
     }
 

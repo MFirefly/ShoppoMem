@@ -22,13 +22,8 @@ public class PendingListActivity extends AppCompatActivity {
 
     private Button shoppingDoneButton = null;
     private ListView listView = null;
-    private static ArrayList<Item> pendingList = null;
     private PendingItemAdapter pendingItemAdapter;
     private Toolbar myToolbar;
-
-    public static ArrayList<Item> getPendingList() {
-        return pendingList;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +43,11 @@ public class PendingListActivity extends AppCompatActivity {
         /* Get data from intent */
         Intent intent = getIntent();
         int position = intent.getIntExtra("LISTPOSITION", -1);
-        pendingList =  ActiveListsActivity.getActiveLists().get(position).getmItemsList();
+        Data.getInstance().setPendingListActivityList(Data.getInstance().getActiveListsActivityList().get(position).getmItemsList());
 
         /* Add list to the ListView with adapter */
         listView = (ListView) findViewById(R.id.pendingListListView);
-        pendingItemAdapter = new PendingItemAdapter(getApplicationContext(), R.layout.pending_list_row, getPendingList());
+        pendingItemAdapter = new PendingItemAdapter(getApplicationContext(), R.layout.pending_list_row, Data.getInstance().getPendingListActivityList());
 
         if(listView != null) {
             listView.setAdapter(pendingItemAdapter);
@@ -74,9 +69,9 @@ public class PendingListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ImageView imageView = (ImageView) view.findViewById(R.id.pendingListRowImageViewCheck);
                 /* Switch the flag */
-                getPendingList().get(position).togglemSelected();
+                Data.getInstance().getPendingListActivityList().get(position).togglemSelected();
                 /* Change image and background color */
-                if(getPendingList().get(position).ismSelected()) {
+                if(Data.getInstance().getPendingListActivityList().get(position).ismSelected()) {
                     /* Change picture and background color */
                     imageView.setImageResource(R.mipmap.ic_check_circle_black_36dp);
                 } else {

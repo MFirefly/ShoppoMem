@@ -10,18 +10,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 
 public class ActiveListsActivity extends AppCompatActivity {
 
-    private static ArrayList<List> activeLists = new ArrayList<>();
-    ListView activeListView = null;
-    ArrayAdapter<List> activeListAdapter;
+    private ListView activeListView = null;
+    private ArrayAdapter<List> activeListAdapter;
     private Toolbar myToolbar;
-
-    public static ArrayList<List> getActiveLists() {
-        return activeLists;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +32,7 @@ public class ActiveListsActivity extends AppCompatActivity {
 
         /* Add list to ListView with adapter */
         activeListView = (ListView) findViewById(R.id.activeListsListView);
-        activeListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,  activeLists);
+        activeListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,  Data.getInstance().getActiveListsActivityList());
 
         if(activeListView != null) {
             activeListView.setAdapter(activeListAdapter);

@@ -12,24 +12,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-
 public class NewListActivity extends AppCompatActivity implements AddNewItemDialogFragment.NewItemDialogListener{
 
     private Toolbar newListToolbar = null;
     private Button addNewItem = null;
     private ListView listView = null;
-    private static ArrayList<Item> list = new ArrayList<>();
     private static ItemAdapter newListItemAdapter;
     private static CoordinatorLayout coordinatorLayout;
-
-    public static void setList(ArrayList<Item> list) {
-        NewListActivity.list = list;
-    }
-
-    public static ArrayList<Item> getList() {
-        return list;
-    }
 
     public static ItemAdapter getNewListItemAdapter() {
         return newListItemAdapter;
@@ -54,7 +43,7 @@ public class NewListActivity extends AppCompatActivity implements AddNewItemDial
 
         /* Add list to the ListView with adapter */
         listView = (ListView) findViewById(R.id.itemsListView);
-        newListItemAdapter = new ItemAdapter(getApplicationContext(), R.layout.new_list_row, getList());
+        newListItemAdapter = new ItemAdapter(getApplicationContext(), R.layout.new_list_row, Data.getInstance().getNewActivityList());
 
         if(listView != null) {
             listView.setAdapter(newListItemAdapter);

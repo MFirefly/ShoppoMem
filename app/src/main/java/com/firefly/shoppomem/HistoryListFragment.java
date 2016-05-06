@@ -36,7 +36,7 @@ public class HistoryListFragment extends ListFragment {
         super.onActivityCreated(savedInstanceState);
 
         /* Set list adapter */
-        setListAdapter(new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, HistoryActivity.getHistoryList()));
+        setListAdapter(new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, Data.getInstance().getHistoryActivityList()));
     }
 
     @Override
