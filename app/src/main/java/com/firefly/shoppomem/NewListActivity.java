@@ -3,6 +3,7 @@ package com.firefly.shoppomem;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,7 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-public class NewListActivity extends AppCompatActivity implements AddNewItemDialogFragment.NewItemDialogListener{
+public class NewListActivity extends AppCompatActivity implements AddNewItemDialogFragment.NewItemDialogListener {
 
     private Toolbar newListToolbar = null;
     private Button addNewItem = null;
@@ -45,7 +46,7 @@ public class NewListActivity extends AppCompatActivity implements AddNewItemDial
         listView = (ListView) findViewById(R.id.itemsListView);
         newListItemAdapter = new ItemAdapter(getApplicationContext(), R.layout.new_list_row, Data.getInstance().getNewActivityList());
 
-        if(listView != null) {
+        if (listView != null) {
             listView.setAdapter(newListItemAdapter);
         }
 
@@ -80,13 +81,17 @@ public class NewListActivity extends AppCompatActivity implements AddNewItemDial
         int id = item.getItemId();
         DialogFragment dialog;
 
-        if(id == R.id.save_list) {
+        if (id == R.id.save_list) {
             dialog = new SaveNewListDialogFragment();
             dialog.show(getFragmentManager(), "SaveListDialog");
             return super.onOptionsItemSelected(item);
-        } else if(id == android.R.id.home) {
-            dialog = new BackButtonNewListDialogFragment();
-            dialog.show(getFragmentManager(), "GoBack");
+        } else if (id == android.R.id.home) {
+            if (!Data.getInstance().getNewActivityList().isEmpty()) {
+                dialog = new BackButtonNewListDialogFragment();
+                dialog.show(getFragmentManager(), "GoBack");
+            } else {
+                onBackPressed();
+            }
         }
         return true;
     }

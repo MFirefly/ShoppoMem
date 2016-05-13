@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 
 /**
  * Created by maja.filakovic on 2.5.2016..

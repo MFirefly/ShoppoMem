@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Data {
     private static Data instance;
 
-    /* Rest of the atrubutes */
+    /* Rest of the attributes */
     private ArrayList<Item> newActivityList = new ArrayList<>();
     private ArrayList<List> activeListsActivityList = new ArrayList<>();
     private ArrayList<List> historyActivityList = new ArrayList<>();
@@ -48,6 +48,4 @@ public class Data {
     public void setPendingListActivityList(ArrayList<Item> pendingListActivityList) {
         this.pendingListActivityList = pendingListActivityList;
     }
-
-    /* Other methods */
 }
