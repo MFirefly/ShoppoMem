@@ -86,6 +86,7 @@ public class NewListActivity extends AppCompatActivity implements AddNewItemDial
             dialog.show(getFragmentManager(), "SaveListDialog");
             return super.onOptionsItemSelected(item);
         } else if (id == android.R.id.home) {
+            /* If the list is empty, don't show the dialog */
             if (!Data.getInstance().getNewActivityList().isEmpty()) {
                 dialog = new BackButtonNewListDialogFragment();
                 dialog.show(getFragmentManager(), "GoBack");

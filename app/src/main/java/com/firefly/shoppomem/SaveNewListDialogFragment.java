@@ -29,6 +29,8 @@ public class SaveNewListDialogFragment extends DialogFragment {
                         Data.getInstance().getActiveListsActivityList().add(list);
                         /* Empty the items list */
                         Data.getInstance().setNewActivityList(new ArrayList<Item>());
+                        /* Finish activity after saving */
+                        getActivity().finish();
                     }
                 })
                 .setNegativeButton(R.string.save_new_list_dismiss_button, null);
