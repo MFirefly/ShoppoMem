@@ -25,8 +25,7 @@ public class HistoryItemListFragment extends ListFragment {
         }
 
         /* Inflate the view for this fragment */
-        View myFragmentView = inflater.inflate(R.layout.history_item_list_fragment, container, false);
-        return myFragmentView;
+        return inflater.inflate(R.layout.history_item_list_fragment, container, false);
     }
 
     public void updateListView(int position) {

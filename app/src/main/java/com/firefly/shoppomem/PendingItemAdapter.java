@@ -74,6 +74,13 @@ public class PendingItemAdapter extends ArrayAdapter<Item> {
         holder.infoView.setText(pendingItem.getAdditionalInfo());
         holder.qtyView.setText(pendingItem.getQuantity());
 
+        /* Set image depending of mSelected flag of the Item */
+        if(pendingItem.ismSelected()) {
+            holder.checkImageView.setImageResource(R.mipmap.ic_check_circle_black_36dp);
+        } else {
+            holder.checkImageView.setImageResource(R.mipmap.ic_panorama_fish_eye_black_36dp);
+        }
+
         return row;
     }
 
