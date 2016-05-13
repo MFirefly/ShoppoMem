@@ -65,4 +65,9 @@
     <string name="finish_shopping_finish">Finish</string>
     <string name="finish_shopping_continue">Continue shopping</string>
 
+    <!-- Saving empty list dialog -->
+
+    <string name="save_empty_list_message">List is empty!</string>
+    <string name="same_empty_list_ok">OK</string>
+
 </resources>

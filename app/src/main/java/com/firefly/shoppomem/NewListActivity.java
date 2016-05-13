@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -82,9 +83,16 @@ public class NewListActivity extends AppCompatActivity implements AddNewItemDial
         DialogFragment dialog;
 
         if (id == R.id.save_list) {
-            dialog = new SaveNewListDialogFragment();
-            dialog.show(getFragmentManager(), "SaveListDialog");
-            return super.onOptionsItemSelected(item);
+            /* If the list is empty, there is nothing to be saved. */
+            if (!Data.getInstance().getNewActivityList().isEmpty()) {
+                dialog = new SaveNewListDialogFragment();
+                dialog.show(getFragmentManager(), "SaveListDialog");
+                return super.onOptionsItemSelected(item);
+            } else {
+                dialog = new SavingEmptyListDialogFragment();
+                dialog.show(getFragmentManager(), "SaveEmptyListDialog");
+                return super.onOptionsItemSelected(item);
+            }
         } else if (id == android.R.id.home) {
             /* If the list is empty, don't show the dialog */
             if (!Data.getInstance().getNewActivityList().isEmpty()) {
